@@ -1,3 +1,40 @@
-[gd_scene format=3 uid="uid://dkq0rtnyvan54"]
+[gd_scene load_steps=7 format=3 uid="uid://dkq0rtnyvan54"]
 
-[node name="Anto" type="Node2D"]
+[ext_resource type="Script" path="res://src/scenes/scripts/anto.gd" id="1_krg4m"]
+[ext_resource type="Texture2D" uid="uid://ckyumsoirmb5" path="res://src/assets/art/anto1.png" id="1_y7gq0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rdqb"]
+atlas = ExtResource("1_y7gq0")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71x2c"]
+atlas = ExtResource("1_y7gq0")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vo1g"]
+atlas = ExtResource("1_y7gq0")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xvsuc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rdqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71x2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vo1g")
+}],
+"loop": true,
+"name": &"ant_walk_1",
+"speed": 5.0
+}]
+
+[node name="Anto" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_xvsuc")
+animation = &"ant_walk_1"
+frame = 2
+frame_progress = 0.19824
+script = ExtResource("1_krg4m")
