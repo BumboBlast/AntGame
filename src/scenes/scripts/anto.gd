@@ -21,6 +21,5 @@ func _on_mouse_exited():
 
 
 func _on_input_event(viewport, event, shape_idx):
-	print(event is InputEventMouseButton)
 	if (event is InputEventMouseButton && event.pressed):
 		print("Clicked")
