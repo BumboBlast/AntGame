@@ -46,3 +46,7 @@ shape = SubResource("CapsuleShape2D_dhin8")
 [node name="AntAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s3olc")
 animation = &"ant_walk_1"
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
