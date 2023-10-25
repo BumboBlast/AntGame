@@ -1,40 +1,48 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkq0rtnyvan54"]
+[gd_scene load_steps=8 format=3 uid="uid://dkq0rtnyvan54"]
 
 [ext_resource type="Script" path="res://src/scenes/scripts/anto.gd" id="1_krg4m"]
 [ext_resource type="Texture2D" uid="uid://ckyumsoirmb5" path="res://src/assets/art/anto1.png" id="1_y7gq0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0rdqb"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dhin8"]
+radius = 32.0
+height = 90.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgaxf"]
 atlas = ExtResource("1_y7gq0")
 region = Rect2(0, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_71x2c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ii2qa"]
 atlas = ExtResource("1_y7gq0")
 region = Rect2(96, 0, 96, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3vo1g"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_56r3d"]
 atlas = ExtResource("1_y7gq0")
 region = Rect2(192, 0, 96, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_xvsuc"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3olc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0rdqb")
+"texture": SubResource("AtlasTexture_rgaxf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_71x2c")
+"texture": SubResource("AtlasTexture_ii2qa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3vo1g")
+"texture": SubResource("AtlasTexture_56r3d")
 }],
 "loop": true,
 "name": &"ant_walk_1",
 "speed": 5.0
 }]
 
-[node name="Anto" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_xvsuc")
-animation = &"ant_walk_1"
-frame = 2
-frame_progress = 0.19824
+[node name="Anto" type="Area2D"]
 script = ExtResource("1_krg4m")
+
+[node name="AntCollision" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dhin8")
+
+[node name="AntAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s3olc")
+animation = &"ant_walk_1"
